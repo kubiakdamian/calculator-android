@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Calculator.iml" filepath="$PROJECT_DIR$/Calculator.iml" />
+      <module fileurl="file://C:\Users\DamianPC\Desktop\calculator-android\Calculator.iml" filepath="C:\Users\DamianPC\Desktop\calculator-android\Calculator.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\DamianPC\Desktop\calculator-android\app\app.iml" filepath="C:\Users\DamianPC\Desktop\calculator-android\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/calculator-android.iml" filepath="$PROJECT_DIR$/calculator-android.iml" />
     </modules>
   </component>
 </project>
