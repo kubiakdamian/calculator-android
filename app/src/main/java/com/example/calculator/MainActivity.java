@@ -70,12 +70,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void openAdvancedCalculator(){
-        Intent intent = new Intent(getApplicationContext(), SimpleActivity.class);
+        Intent intent = new Intent(getApplicationContext(), AdvancedActivity.class);
         startActivity(intent);
     }
 
     private void openAbout(){
-        Intent intent = new Intent(getApplicationContext(), SimpleActivity.class);
+        Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
         startActivity(intent);
     }
 
