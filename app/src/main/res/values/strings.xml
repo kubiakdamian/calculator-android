@@ -20,7 +20,7 @@
     <string name="made_by_student_pl">Wykonana przez Studenta Politechniki Łódzkiej</string>
     <string name="name_author">Arkadiusza Mordaka</string>
     <string name="ZERO">0</string>
-    <string name="COMA">.</string>
+    <string name="DOT">.</string>
     <string name="SUBTRACTION">-</string>
     <string name="MULTIPLICATION">*</string>
     <string name="SIN">Sin</string>
@@ -35,4 +35,5 @@
     <string name="ADVANCE">Advance</string>
     <string name="ABOUT">About</string>
     <string name="EXIT">Exit</string>
+    <string name="button">Button</string>
 </resources>
