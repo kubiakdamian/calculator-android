@@ -19,7 +19,7 @@
 
 
         <EditText
-            android:id="@+id/textView"
+            android:id="@+id/resultText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:freezesText="true" />
@@ -38,7 +38,7 @@
 
 
                 <Button
-                    android:id="@+id/button13"
+                    android:id="@+id/bkspBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -46,7 +46,7 @@
                     tools:text="@string/BSKP" />
 
                 <Button
-                    android:id="@+id/button12"
+                    android:id="@+id/clearBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -54,7 +54,7 @@
                     tools:text="@string/CLEAR" />
 
                 <Button
-                    android:id="@+id/button11"
+                    android:id="@+id/changeBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -62,7 +62,7 @@
                     tools:text="@string/CHANGE" />
 
                 <Button
-                    android:id="@+id/button10"
+                    android:id="@+id/divisionBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -76,31 +76,34 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button17"
+                    android:id="@+id/sevenBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="sevenBtnClicked"
                     android:text="@string/SEVEN"
                     tools:text="@string/SEVEN" />
 
                 <Button
-                    android:id="@+id/button16"
+                    android:id="@+id/eightBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="eightBtnClicked"
                     android:text="@string/EIGHT"
                     tools:text="@string/EIGHT" />
 
                 <Button
-                    android:id="@+id/button15"
+                    android:id="@+id/nineBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="nineBtnClicked"
                     android:text="@string/NINE"
                     tools:text="@string/NINE" />
 
                 <Button
-                    android:id="@+id/button14"
+                    android:id="@+id/multiplicationBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -114,31 +117,34 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button21"
+                    android:id="@+id/fourBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="fourBtnClicked"
                     android:text="@string/FOUR"
                     tools:text="@string/FOUR" />
 
                 <Button
-                    android:id="@+id/button20"
+                    android:id="@+id/fiveBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="fiveBtnClicked"
                     android:text="@string/FIVE"
                     tools:text="@string/FIVE" />
 
                 <Button
-                    android:id="@+id/button19"
+                    android:id="@+id/sixbtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="sixBtnClicked"
                     android:text="@string/SIX"
                     tools:text="@string/SIX" />
 
                 <Button
-                    android:id="@+id/button18"
+                    android:id="@+id/additionBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -152,34 +158,38 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button25"
+                    android:id="@+id/oneBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="oneBtnClicked"
                     android:text="@string/ONE"
                     tools:text="@string/ONE" />
 
                 <Button
-                    android:id="@+id/button24"
+                    android:id="@+id/twoBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="twoBtnClicked"
                     android:text="@string/TWO"
                     tools:text="@string/TWO" />
 
                 <Button
-                    android:id="@+id/button23"
+                    android:id="@+id/threeBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="threeBtnClicked"
                     android:text="@string/THREE"
                     tools:text="@string/THREE" />
 
                 <Button
-                    android:id="@+id/button22"
+                    android:id="@+id/subtractionBtn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="subtractionBtnClicked"
                     android:text="@string/SUBTRACTION"
                     tools:text="@string/SUBTRACTION" />
             </LinearLayout>
@@ -196,24 +206,26 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button29"
+                        android:id="@+id/zeroBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:onClick="zeroBtnClicked"
                         android:text="@string/ZERO"
                         tools:text="@string/ZERO" />
 
                     <Button
-                        android:id="@+id/button31"
+                        android:id="@+id/dotBtn"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:onClick="separatorClicked"
                         android:text="@string/DOT"
                         tools:text="@string/DOT" />
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/button30"
+                    android:id="@+id/equalsBtn"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
