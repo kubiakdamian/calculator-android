@@ -42,6 +42,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="bkspBtnClicked"
                     android:text="@string/BSKP"
                     tools:text="@string/BSKP" />
 
@@ -50,6 +51,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="clearBtnClicked"
                     android:text="@string/CLEAR"
                     tools:text="@string/CLEAR" />
 
@@ -58,6 +60,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:onClick="changeBtnClicked"
                     android:text="@string/CHANGE"
                     tools:text="@string/CHANGE" />
 

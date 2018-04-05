@@ -125,6 +125,31 @@ public class SimpleActivity extends AppCompatActivity {
         clearInput();
     }
 
+    public void clearBtnClicked(View view){
+        clearInput();
+    }
+
+    public void bkspBtnClicked(View view) {
+        if(input.length() > 0){
+            input = input.deleteCharAt(input.length() - 1);
+        }
+        refreshInput();
+    }
+
+    public void changeBtnClicked(View view){
+        try{
+            double value = Double.parseDouble(input.toString());
+            if(value < 0){
+                input.deleteCharAt(0);
+            }
+            else if(value > 0){
+                input.insert(0,"-");
+            }
+        }
+        catch(NumberFormatException ignored){
+        }
+        refreshInput();
+    }
 
     public void equalsBtnClicked(View view){
         secondNumber = Double.parseDouble(input.toString());
