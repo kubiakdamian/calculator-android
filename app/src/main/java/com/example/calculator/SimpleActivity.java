@@ -16,6 +16,7 @@ public class SimpleActivity extends AppCompatActivity {
     private double secondNumber;
     private double result;
     private boolean operationClicked;
+    private boolean equalsClicked;
     private String action;
 
     @Override
@@ -32,6 +33,7 @@ public class SimpleActivity extends AppCompatActivity {
         input = new StringBuilder();
         resultText.setText(input);
         operationClicked = false;
+        equalsClicked = true;
         action = "none";
     }
 
@@ -98,6 +100,12 @@ public class SimpleActivity extends AppCompatActivity {
         if(firstNumber == 0){
             firstNumber = Double.parseDouble(input.toString());
         }
+
+        if(!equalsClicked){
+            makeCalculations();
+        }
+
+        equalsClicked = false;
         clearInput();
     }
 
@@ -106,6 +114,12 @@ public class SimpleActivity extends AppCompatActivity {
         if(firstNumber == 0){
             firstNumber = Double.parseDouble(input.toString());
         }
+
+        if(!equalsClicked){
+            makeCalculations();
+        }
+
+        equalsClicked = false;
         clearInput();
     }
 
@@ -114,6 +128,12 @@ public class SimpleActivity extends AppCompatActivity {
         if(firstNumber == 0){
             firstNumber = Double.parseDouble(input.toString());
         }
+
+        if(!equalsClicked){
+            makeCalculations();
+        }
+
+        equalsClicked = false;
         clearInput();
     }
 
@@ -122,10 +142,17 @@ public class SimpleActivity extends AppCompatActivity {
         if(firstNumber == 0){
             firstNumber = Double.parseDouble(input.toString());
         }
+
+        if(!equalsClicked){
+            makeCalculations();
+        }
+
+        equalsClicked = false;
         clearInput();
     }
 
     public void clearBtnClicked(View view){
+        firstNumber = 0;
         clearInput();
     }
 
@@ -152,6 +179,18 @@ public class SimpleActivity extends AppCompatActivity {
     }
 
     public void equalsBtnClicked(View view){
+        equalsClicked = true;
+        makeCalculations();
+        setInputAsResult();
+    }
+
+    private void setInputAsResult(){
+        input.setLength(0);
+        input.append(Double.toString(firstNumber));
+        refreshInput();
+    }
+
+    private void makeCalculations(){
         secondNumber = Double.parseDouble(input.toString());
         if(action.equals("subtraction")){
             result = calculations.subtraction(firstNumber, secondNumber);
@@ -170,14 +209,6 @@ public class SimpleActivity extends AppCompatActivity {
                 Toast.makeText(this.getApplicationContext(), "You cannot divide by 0!", Toast.LENGTH_LONG);
             }
         }
-
-        setInputAsResult();
-    }
-
-    private void setInputAsResult(){
-        input.setLength(0);
-        input.append(Double.toString(firstNumber));
-        refreshInput();
     }
 
     private void refreshInput(){
