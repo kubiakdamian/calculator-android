@@ -17,6 +17,7 @@ public class SimpleActivity extends AppCompatActivity {
     private double result;
     private boolean operationClicked;
     private boolean equalsClicked;
+    private boolean isResultDisplayed;
     private String action;
 
     @Override
@@ -34,57 +35,78 @@ public class SimpleActivity extends AppCompatActivity {
         resultText.setText(input);
         operationClicked = false;
         equalsClicked = true;
+        isResultDisplayed = false;
         action = "none";
     }
 
     public void zeroBtnClicked(View view){
-        input.append("0");
-        refreshInput();
+        if(!isResultDisplayed){
+            input.append("0");
+            refreshInput();
+        }
     }
 
     public void oneBtnClicked(View view){
-        input.append("1");
-        refreshInput();
+        if(!isResultDisplayed){
+            input.append("1");
+            refreshInput();
+        }
     }
 
     public void twoBtnClicked(View view){
-        input.append("2");
-        refreshInput();
+        if(!isResultDisplayed){
+            input.append("2");
+            refreshInput();
+        }
     }
 
     public void threeBtnClicked(View view){
-        input.append("3");
-        refreshInput();
+        if(!isResultDisplayed){
+            input.append("3");
+            refreshInput();
+        }
     }
 
     public void fourBtnClicked(View view){
-        input.append("4");
-        refreshInput();
+        if(!isResultDisplayed){
+            input.append("4");
+            refreshInput();
+        }
     }
 
     public void fiveBtnClicked(View view){
-        input.append("5");
-        refreshInput();
+        if(!isResultDisplayed){
+            input.append("5");
+            refreshInput();
+        }
     }
 
     public void sixBtnClicked(View view){
-        input.append("6");
-        refreshInput();
+        if(!isResultDisplayed){
+            input.append("6");
+            refreshInput();
+        }
     }
 
     public void sevenBtnClicked(View view){
-        input.append("7");
-        refreshInput();
+        if(!isResultDisplayed){
+            input.append("7");
+            refreshInput();
+        }
     }
 
     public void eightBtnClicked(View view){
-        input.append("8");
-        refreshInput();
+        if(!isResultDisplayed){
+            input.append("8");
+            refreshInput();
+        }
     }
 
     public void nineBtnClicked(View view){
-        input.append("9");
-        refreshInput();
+        if(!isResultDisplayed){
+            input.append("9");
+            refreshInput();
+        }
     }
 
     public void separatorClicked(View view) {
@@ -106,6 +128,7 @@ public class SimpleActivity extends AppCompatActivity {
         }
 
         equalsClicked = false;
+        isResultDisplayed = false;
         clearInput();
     }
 
@@ -119,6 +142,7 @@ public class SimpleActivity extends AppCompatActivity {
             makeCalculations();
         }
 
+        isResultDisplayed = false;
         equalsClicked = false;
         clearInput();
     }
@@ -133,6 +157,7 @@ public class SimpleActivity extends AppCompatActivity {
             makeCalculations();
         }
 
+        isResultDisplayed = false;
         equalsClicked = false;
         clearInput();
     }
@@ -147,12 +172,15 @@ public class SimpleActivity extends AppCompatActivity {
             makeCalculations();
         }
 
+        isResultDisplayed = false;
         equalsClicked = false;
         clearInput();
     }
 
     public void clearBtnClicked(View view){
         firstNumber = 0;
+        isResultDisplayed = false;
+        equalsClicked = true;
         clearInput();
     }
 
@@ -160,10 +188,13 @@ public class SimpleActivity extends AppCompatActivity {
         if(input.length() > 0){
             input = input.deleteCharAt(input.length() - 1);
         }
+
+        isResultDisplayed = false;
         refreshInput();
     }
 
     public void changeBtnClicked(View view){
+        equalsClicked = false;
         try{
             double value = Double.parseDouble(input.toString());
             if(value < 0){
@@ -180,6 +211,7 @@ public class SimpleActivity extends AppCompatActivity {
 
     public void equalsBtnClicked(View view){
         equalsClicked = true;
+        isResultDisplayed = true;
         makeCalculations();
         setInputAsResult();
     }
