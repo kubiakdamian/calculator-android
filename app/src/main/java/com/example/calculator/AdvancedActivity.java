@@ -118,79 +118,19 @@ public class AdvancedActivity extends AppCompatActivity {
     }
 
     public void additionBtnClicked(View view){
-        if(input.length() > 0) {
-            if (equalsClicked) {
-                action = "addition";
-                if (firstNumber == 0) {
-                    firstNumber = Double.parseDouble(input.toString());
-                }
-            } else if(!isAdvancedOperation) {
-                makeCalculations();
-                action = "addition";
-                Toast.makeText(getBaseContext(), String.valueOf(firstNumber), Toast.LENGTH_SHORT).show();
-            }
-            isResultDisplayed = false;
-            equalsClicked = false;
-            isAdvancedOperation = false;
-            clearInput();
-        }
+        twoNumbersOperation("addition");
     }
 
     public void subtractionBtnClicked(View view){
-        if(input.length() > 0) {
-            if (equalsClicked) {
-                action = "subtraction";
-                if (firstNumber == 0) {
-                    firstNumber = Double.parseDouble(input.toString());
-                }
-            } else if(!isAdvancedOperation){
-                makeCalculations();
-                action = "subtraction";
-                Toast.makeText(getBaseContext(), String.valueOf(firstNumber), Toast.LENGTH_SHORT).show();
-            }
-            equalsClicked = false;
-            isResultDisplayed = false;
-            isAdvancedOperation = false;
-            clearInput();
-        }
+        twoNumbersOperation("subtraction");
     }
 
     public void multiplicationBtnClicked(View view){
-        if(input.length() > 0) {
-            if (equalsClicked) {
-                action = "multiplication";
-                if (firstNumber == 0) {
-                    firstNumber = Double.parseDouble(input.toString());
-                }
-            } else if(!isAdvancedOperation){
-                makeCalculations();
-                action = "multiplication";
-                Toast.makeText(getBaseContext(), String.valueOf(firstNumber), Toast.LENGTH_SHORT).show();
-            }
-            isResultDisplayed = false;
-            equalsClicked = false;
-            isAdvancedOperation = false;
-            clearInput();
-        }
+        twoNumbersOperation("multiplication");
     }
 
     public void divisionBtnClicked(View view){
-        if(input.length() > 0) {
-            if (equalsClicked) {
-                action = "division";
-                if (firstNumber == 0) {
-                    firstNumber = Double.parseDouble(input.toString());
-                }
-            } else if(!isAdvancedOperation){
-                makeCalculations();
-                action = "division";
-                Toast.makeText(getBaseContext(), String.valueOf(firstNumber), Toast.LENGTH_SHORT).show();
-            }
-            isResultDisplayed = false;
-            equalsClicked = false;
-            isAdvancedOperation = false;
-            clearInput();
-        }
+        twoNumbersOperation("division");
     }
 
     public void clearBtnClicked(View view){
@@ -244,10 +184,7 @@ public class AdvancedActivity extends AppCompatActivity {
             if(firstNumber > 0){
                 action = "log";
                 makeCalculations();
-
-                isResultDisplayed = true;
-                equalsClicked = true;
-                isAdvancedOperation = true;
+                setSingleNumberOperationFlags();
                 setInputAsResult();
             }else{
                 Toast.makeText(getBaseContext(), "Number has to be greater than 0!", Toast.LENGTH_SHORT).show();
@@ -263,10 +200,7 @@ public class AdvancedActivity extends AppCompatActivity {
             if(firstNumber > 0){
                 action = "ln";
                 makeCalculations();
-
-                isResultDisplayed = true;
-                equalsClicked = true;
-                isAdvancedOperation = true;
+                setSingleNumberOperationFlags();
                 setInputAsResult();
             }else{
                 Toast.makeText(getBaseContext(), "Number has to be greater than 0!", Toast.LENGTH_SHORT).show();
@@ -281,10 +215,7 @@ public class AdvancedActivity extends AppCompatActivity {
             }
             action = "sin";
             makeCalculations();
-
-            isResultDisplayed = true;
-            equalsClicked = true;
-            isAdvancedOperation = true;
+            setSingleNumberOperationFlags();
             setInputAsResult();
         }
     }
@@ -296,10 +227,7 @@ public class AdvancedActivity extends AppCompatActivity {
             }
             action = "cos";
             makeCalculations();
-
-            isResultDisplayed = true;
-            equalsClicked = true;
-            isAdvancedOperation = true;
+            setSingleNumberOperationFlags();
             setInputAsResult();
         }
     }
@@ -311,10 +239,7 @@ public class AdvancedActivity extends AppCompatActivity {
             }
             action = "tan";
             makeCalculations();
-
-            isResultDisplayed = true;
-            equalsClicked = true;
-            isAdvancedOperation = true;
+            setSingleNumberOperationFlags();
             setInputAsResult();
         }
     }
@@ -327,10 +252,7 @@ public class AdvancedActivity extends AppCompatActivity {
             if(firstNumber > 0){
                 action = "sqrt";
                 makeCalculations();
-
-                isResultDisplayed = true;
-                equalsClicked = true;
-                isAdvancedOperation = true;
+                setSingleNumberOperationFlags();
                 setInputAsResult();
             }else{
                 Toast.makeText(getBaseContext(), "Number has to be greater than 0!", Toast.LENGTH_SHORT).show();
@@ -345,10 +267,7 @@ public class AdvancedActivity extends AppCompatActivity {
             }
             action = "pow";
             makeCalculations();
-
-            isResultDisplayed = true;
-            equalsClicked = true;
-            isAdvancedOperation = true;
+            setSingleNumberOperationFlags();
             setInputAsResult();
         }
     }
@@ -365,14 +284,39 @@ public class AdvancedActivity extends AppCompatActivity {
                 action = "powToY";
                 Toast.makeText(getBaseContext(), String.valueOf(firstNumber), Toast.LENGTH_SHORT).show();
             }
-            isResultDisplayed = false;
-            equalsClicked = false;
-            isAdvancedOperation = false;
+            setTwoNumbersOperationFlags();
             clearInput();
         }
     }
 
+    private void twoNumbersOperation(String actionType){
+        if(input.length() > 0) {
+            if (equalsClicked) {
+                action = actionType;
+                if (firstNumber == 0) {
+                    firstNumber = Double.parseDouble(input.toString());
+                }
+            } else if(!isAdvancedOperation) {
+                makeCalculations();
+                action = actionType;
+                Toast.makeText(getBaseContext(), String.valueOf(firstNumber), Toast.LENGTH_SHORT).show();
+            }
+            setTwoNumbersOperationFlags();
+            clearInput();
+        }
+    }
 
+    private void setTwoNumbersOperationFlags(){
+        isResultDisplayed = false;
+        equalsClicked = false;
+        isAdvancedOperation = false;
+    }
+
+    private void setSingleNumberOperationFlags(){
+        isResultDisplayed = true;
+        equalsClicked = true;
+        isAdvancedOperation = true;
+    }
 
     private void setInputAsResult(){
         input.setLength(0);
