@@ -9,16 +9,12 @@
     <string name="EIGHT">8</string>
     <string name="SEVEN">7</string>
     <string name="CHANGE">±</string>
-    <string name="CLEAR">C / CE</string>
+    <string name="CLEAR">C</string>
     <string name="BSKP">BSKP</string>
     <string name="ONE">1</string>
     <string name="TWO">2</string>
     <string name="THREE">3</string>
     <string name="EQUAL">=</string>
-    <string name="app_calc">Aplikacja Kalkulator</string>
-    <string name="created_by">Stworzona na zajęcia PAM</string>
-    <string name="made_by_student_pl">Wykonana przez Studenta Politechniki Łódzkiej</string>
-    <string name="name_author">Arkadiusza Mordaka</string>
     <string name="ZERO">0</string>
     <string name="DOT">.</string>
     <string name="SUBTRACTION">-</string>

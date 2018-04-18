@@ -15,7 +15,6 @@ public class SimpleActivity extends AppCompatActivity {
     private double firstNumber;
     private double secondNumber;
     private double result;
-    private boolean operationClicked;
     private boolean equalsClicked;
     private boolean isResultDisplayed;
     private String action;
@@ -33,7 +32,6 @@ public class SimpleActivity extends AppCompatActivity {
         resultText.setTextColor(Color.WHITE);
         input = new StringBuilder();
         resultText.setText(input);
-        operationClicked = false;
         equalsClicked = true;
         isResultDisplayed = false;
         action = "none";
@@ -117,64 +115,76 @@ public class SimpleActivity extends AppCompatActivity {
         refreshInput();
     }
 
-    public void subtractionBtnClicked(View view){
-        action = "subtraction";
-        if(firstNumber == 0){
-            firstNumber = Double.parseDouble(input.toString());
+    public void additionBtnClicked(View view){
+        if(input.length() > 0) {
+            if (equalsClicked) {
+                action = "addition";
+                if (firstNumber == 0) {
+                    firstNumber = Double.parseDouble(input.toString());
+                }
+            } else {
+                makeCalculations();
+                action = "addition";
+                Toast.makeText(getBaseContext(), String.valueOf(firstNumber), Toast.LENGTH_SHORT).show();
+            }
+            isResultDisplayed = false;
+            equalsClicked = false;
+            clearInput();
         }
-
-        if(!equalsClicked){
-            makeCalculations();
-        }
-
-        equalsClicked = false;
-        isResultDisplayed = false;
-        clearInput();
     }
 
-    public void additionBtnClicked(View view){
-        action = "addition";
-        if(firstNumber == 0){
-            firstNumber = Double.parseDouble(input.toString());
+    public void subtractionBtnClicked(View view){
+        if(input.length() > 0) {
+            if (equalsClicked) {
+                action = "subtraction";
+                if (firstNumber == 0) {
+                    firstNumber = Double.parseDouble(input.toString());
+                }
+            } else {
+                makeCalculations();
+                action = "subtraction";
+                Toast.makeText(getBaseContext(), String.valueOf(firstNumber), Toast.LENGTH_SHORT).show();
+            }
+            equalsClicked = false;
+            isResultDisplayed = false;
+            clearInput();
         }
-
-        if(!equalsClicked){
-            makeCalculations();
-        }
-
-        isResultDisplayed = false;
-        equalsClicked = false;
-        clearInput();
     }
 
     public void multiplicationBtnClicked(View view){
-        action = "multiplication";
-        if(firstNumber == 0){
-            firstNumber = Double.parseDouble(input.toString());
+        if(input.length() > 0) {
+            if (equalsClicked) {
+                action = "multiplication";
+                if (firstNumber == 0) {
+                    firstNumber = Double.parseDouble(input.toString());
+                }
+            } else {
+                makeCalculations();
+                action = "multiplication";
+                Toast.makeText(getBaseContext(), String.valueOf(firstNumber), Toast.LENGTH_SHORT).show();
+            }
+            isResultDisplayed = false;
+            equalsClicked = false;
+            clearInput();
         }
-
-        if(!equalsClicked){
-            makeCalculations();
-        }
-
-        isResultDisplayed = false;
-        equalsClicked = false;
-        clearInput();
     }
 
     public void divisionBtnClicked(View view){
-        action = "division";
-        if(firstNumber == 0){
-            firstNumber = Double.parseDouble(input.toString());
+        if(input.length() > 0) {
+            if (equalsClicked) {
+                action = "division";
+                if (firstNumber == 0) {
+                    firstNumber = Double.parseDouble(input.toString());
+                }
+            } else {
+                makeCalculations();
+                action = "division";
+                Toast.makeText(getBaseContext(), String.valueOf(firstNumber), Toast.LENGTH_SHORT).show();
+            }
+            isResultDisplayed = false;
+            equalsClicked = false;
+            clearInput();
         }
-
-        if(!equalsClicked){
-            makeCalculations();
-        }
-
-        isResultDisplayed = false;
-        equalsClicked = false;
-        clearInput();
     }
 
     public void clearBtnClicked(View view){
@@ -185,16 +195,15 @@ public class SimpleActivity extends AppCompatActivity {
     }
 
     public void bkspBtnClicked(View view) {
-        if(input.length() > 0){
-            input = input.deleteCharAt(input.length() - 1);
+        if(!isResultDisplayed){
+            if(input.length() > 0){
+                input = input.deleteCharAt(input.length() - 1);
+            }
         }
-
-        isResultDisplayed = false;
         refreshInput();
     }
 
     public void changeBtnClicked(View view){
-        equalsClicked = false;
         try{
             double value = Double.parseDouble(input.toString());
             if(value < 0){
@@ -203,6 +212,7 @@ public class SimpleActivity extends AppCompatActivity {
             else if(value > 0){
                 input.insert(0,"-");
             }
+            firstNumber = Double.parseDouble(input.toString());
         }
         catch(NumberFormatException ignored){
         }
@@ -210,10 +220,14 @@ public class SimpleActivity extends AppCompatActivity {
     }
 
     public void equalsBtnClicked(View view){
-        equalsClicked = true;
-        isResultDisplayed = true;
-        makeCalculations();
-        setInputAsResult();
+        if(input.length() != 0){
+            if(!equalsClicked){
+                makeCalculations();
+                setInputAsResult();
+            }
+            equalsClicked = true;
+            isResultDisplayed = true;
+        }
     }
 
     private void setInputAsResult(){
@@ -238,7 +252,7 @@ public class SimpleActivity extends AppCompatActivity {
                 result = calculations.division(firstNumber, secondNumber);
                 firstNumber = result;
             }else{
-                Toast.makeText(this.getApplicationContext(), "You cannot divide by 0!", Toast.LENGTH_LONG);
+                Toast.makeText(getBaseContext(), "You cannot divide by 0!", Toast.LENGTH_SHORT).show();
             }
         }
     }
