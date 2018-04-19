@@ -26,6 +26,29 @@ public class AdvancedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_advanced);
         calculations = new Calculations();
         init();
+
+        if(savedInstanceState != null){
+            firstNumber = savedInstanceState.getDouble("firstNumber");
+            secondNumber = savedInstanceState.getDouble("secondNumber");
+            action = savedInstanceState.getString("action");
+            equalsClicked = savedInstanceState.getBoolean("equalsClicked");
+            isResultDisplayed = savedInstanceState.getBoolean("isResultDisplayed");
+            isAdvancedOperation = savedInstanceState.getBoolean("isAdvancedOperation");
+            input.append(savedInstanceState.getString("input"));
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putDouble("firstNumber", firstNumber);
+        outState.putDouble("secondNumber", secondNumber);
+        outState.putString("action", action);
+        outState.putBoolean("equalsClicked", equalsClicked);
+        outState.putBoolean("isResultDisplayed", isResultDisplayed);
+        outState.putBoolean("isAdvancedOperation", isAdvancedOperation);
+        outState.putString("input", input.toString());
+
+        super.onSaveInstanceState(outState);
     }
 
     private void init(){
