@@ -240,48 +240,15 @@ public class AdvancedActivity extends AppCompatActivity {
     }
 
     public void sinBtnClicked(View view){
-        if(!isResultDisplayed){
-            makeCalculations();
-        }
-        if(input.length() > 0) {
-            if (firstNumber == 0) {
-                firstNumber = Double.parseDouble(input.toString());
-            }
-            action = "sin";
-            makeCalculations();
-            setSingleNumberOperationFlags();
-            setInputAsResult();
-        }
+        singleNumberOperation("sin");
     }
 
     public void cosBtnClicked(View view){
-        if(!isResultDisplayed){
-            makeCalculations();
-        }
-        if(input.length() > 0) {
-            if (firstNumber == 0) {
-                firstNumber = Double.parseDouble(input.toString());
-            }
-            action = "cos";
-            makeCalculations();
-            setSingleNumberOperationFlags();
-            setInputAsResult();
-        }
+        singleNumberOperation("cos");
     }
 
     public void tanBtnClicked(View view){
-        if(!isResultDisplayed){
-            makeCalculations();
-        }
-        if(input.length() > 0) {
-            if (firstNumber == 0) {
-                firstNumber = Double.parseDouble(input.toString());
-            }
-            action = "tan";
-            makeCalculations();
-            setSingleNumberOperationFlags();
-            setInputAsResult();
-        }
+        singleNumberOperation("tan");
     }
 
     public void sqrtBtnClicked(View view){
@@ -304,18 +271,7 @@ public class AdvancedActivity extends AppCompatActivity {
     }
 
     public void powBtnClicked(View view){
-        if(!isResultDisplayed){
-            makeCalculations();
-        }
-        if(input.length() > 0) {
-            if (firstNumber == 0) {
-                firstNumber = Double.parseDouble(input.toString());
-            }
-            action = "pow";
-            makeCalculations();
-            setSingleNumberOperationFlags();
-            setInputAsResult();
-        }
+        singleNumberOperation("pow");
     }
 
     public void powToYBtnClicked(View view){
@@ -349,6 +305,21 @@ public class AdvancedActivity extends AppCompatActivity {
             }
             setTwoNumbersOperationFlags();
             clearInput();
+        }
+    }
+
+    private void singleNumberOperation(String actionType){
+        if(!isResultDisplayed){
+            makeCalculations();
+        }
+        if(input.length() > 0) {
+            if (firstNumber == 0) {
+                firstNumber = Double.parseDouble(input.toString());
+            }
+            action = actionType;
+            makeCalculations();
+            setSingleNumberOperationFlags();
+            setInputAsResult();
         }
     }
 
