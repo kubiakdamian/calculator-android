@@ -202,6 +202,9 @@ public class AdvancedActivity extends AppCompatActivity {
     }
 
     public void logBtnClicked(View view){
+        if(!isResultDisplayed){
+            makeCalculations();
+        }
         if(input.length() > 0) {
             if (firstNumber == 0) {
                 firstNumber = Double.parseDouble(input.toString());
@@ -218,6 +221,9 @@ public class AdvancedActivity extends AppCompatActivity {
     }
 
     public void lnBtnClicked(View view){
+        if(!isResultDisplayed){
+            makeCalculations();
+        }
         if(input.length() > 0) {
             if (firstNumber == 0) {
                 firstNumber = Double.parseDouble(input.toString());
@@ -234,6 +240,9 @@ public class AdvancedActivity extends AppCompatActivity {
     }
 
     public void sinBtnClicked(View view){
+        if(!isResultDisplayed){
+            makeCalculations();
+        }
         if(input.length() > 0) {
             if (firstNumber == 0) {
                 firstNumber = Double.parseDouble(input.toString());
@@ -246,6 +255,9 @@ public class AdvancedActivity extends AppCompatActivity {
     }
 
     public void cosBtnClicked(View view){
+        if(!isResultDisplayed){
+            makeCalculations();
+        }
         if(input.length() > 0) {
             if (firstNumber == 0) {
                 firstNumber = Double.parseDouble(input.toString());
@@ -258,6 +270,9 @@ public class AdvancedActivity extends AppCompatActivity {
     }
 
     public void tanBtnClicked(View view){
+        if(!isResultDisplayed){
+            makeCalculations();
+        }
         if(input.length() > 0) {
             if (firstNumber == 0) {
                 firstNumber = Double.parseDouble(input.toString());
@@ -270,6 +285,9 @@ public class AdvancedActivity extends AppCompatActivity {
     }
 
     public void sqrtBtnClicked(View view){
+        if(!isResultDisplayed){
+            makeCalculations();
+        }
         if(input.length() > 0) {
             if (firstNumber == 0) {
                 firstNumber = Double.parseDouble(input.toString());
@@ -286,6 +304,9 @@ public class AdvancedActivity extends AppCompatActivity {
     }
 
     public void powBtnClicked(View view){
+        if(!isResultDisplayed){
+            makeCalculations();
+        }
         if(input.length() > 0) {
             if (firstNumber == 0) {
                 firstNumber = Double.parseDouble(input.toString());
