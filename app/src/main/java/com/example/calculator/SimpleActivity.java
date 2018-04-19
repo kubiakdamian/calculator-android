@@ -132,7 +132,9 @@ public class SimpleActivity extends AppCompatActivity {
         if (input.indexOf(".") != -1){
             return;
         }
-        input.append(".");
+        if(input.length() > 0){
+            input.append(".");
+        }
         refreshInput();
     }
 
