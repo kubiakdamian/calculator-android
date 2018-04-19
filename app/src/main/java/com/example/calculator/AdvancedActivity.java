@@ -362,10 +362,18 @@ public class AdvancedActivity extends AppCompatActivity {
             firstNumber = result;
         }else if(action.equals("pow")){
             result = calculations.pow(firstNumber);
-            firstNumber = result;
+            if(Double.isInfinite(result)){
+                Toast.makeText(getBaseContext(), "The number is too large!", Toast.LENGTH_SHORT).show();
+            }else{
+                firstNumber = result;
+            }
         }else if(action.equals("powToY")){
             result = calculations.pow(firstNumber, secondNumber);
-            firstNumber = result;
+            if(Double.isInfinite(result)){
+                Toast.makeText(getBaseContext(), "The number is too large!", Toast.LENGTH_SHORT).show();
+            }else{
+                firstNumber = result;
+            }
         }
     }
 
