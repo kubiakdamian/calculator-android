@@ -23,7 +23,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:freezesText="true"
-            android:singleLine="false" />
+            android:singleLine="false"
+            android:cursorVisible="false"
+            android:backgroundTint="@color/orange"/>
 
         <LinearLayout
             android:layout_width="match_parent"
