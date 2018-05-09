@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000"
-    tools:context="com.example.calculator.AdvancedActivity">
+    tools:context="com.example.calculator.SimpleActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -19,14 +19,14 @@
 
 
         <EditText
-            android:id="@+id/resultText"
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:freezesText="true"
-            android:singleLine="false"
             android:cursorVisible="false"
             android:backgroundTint="@color/orange"
-            android:textColor="#fff"/>
+            android:textColor="#fff"
+            android:textSize="70sp"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -44,142 +44,47 @@
                 <Button
                     android:id="@+id/bkspBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="backspace"
                     android:text="@string/BSKP"
-                    tools:text="@string/BSKP"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/BSKP" />
 
                 <Button
                     android:id="@+id/clearBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
+                    android:textSize="30sp"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="clear"
                     android:text="@string/CLEAR"
-                    tools:text="@string/CLEAR"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/CLEAR" />
 
                 <Button
                     android:id="@+id/changeBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="changeSign"
                     android:text="@string/CHANGE"
-                    tools:text="@string/CHANGE"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/CHANGE" />
 
                 <Button
                     android:id="@+id/divisionBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
-                    android:backgroundTint="@color/orange"
-                    android:onClick="logarithm"
-                    android:text="@string/LOG"
-                    tools:text="@string/LOG"
-                    style="@style/ButtonFontStyle"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35sp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/orange"
-                    android:onClick="sinus"
-                    android:text="@string/SIN"
-                    tools:text="@string/SIN"
-                    style="@style/ButtonFontStyle"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="35sp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/orange"
-                    android:onClick="cosinus"
-                    android:text="@string/COS"
-                    tools:text="@string/COS"
-                    style="@style/ButtonFontStyle"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="35sp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/orange"
-                    android:onClick="tanges"
-                    android:text="@string/TAN"
-                    tools:text="@string/TAN"
-                    style="@style/ButtonFontStyle"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="35sp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/orange"
-                    android:onClick="naturalLogarithm"
-                    android:text="@string/LN"
-                    tools:text="@string/LN"
-                    style="@style/ButtonFontStyle"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35sp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/orange"
-                    android:onClick="sqrt"
-                    android:text="@string/SQRT"
-                    tools:text="@string/SQRT"
-                    style="@style/ButtonFontStyle"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="35sp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/orange"
-                    android:onClick="powerToTwo"
-                    android:text="@string/X2"
-                    tools:text="@string/X2"
-                    style="@style/ButtonFontStyle"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="35sp"
-                    android:layout_weight="1"
-                    android:backgroundTint="@color/orange"
-                    android:onClick="powerToY"
-                    android:text="@string/XY"
-                    tools:text="@string/XY"
-                    style="@style/ButtonFontStyle"/>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="35sp"
-                    android:layout_weight="1"
+                    android:textSize="30sp"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="division"
                     android:text="@string/DIV"
-                    tools:text="@string/DIV"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/DIV" />
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -189,43 +94,43 @@
                 <Button
                     android:id="@+id/sevenBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:onClick="addButton7"
                     android:text="@string/SEVEN"
-                    tools:text="@string/SEVEN"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/SEVEN" />
 
                 <Button
                     android:id="@+id/eightBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:onClick="addButton8"
                     android:text="@string/EIGHT"
-                    tools:text="@string/EIGHT"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/EIGHT" />
 
                 <Button
                     android:id="@+id/nineBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:onClick="addButton9"
                     android:text="@string/NINE"
-                    tools:text="@string/NINE"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/NINE" />
 
                 <Button
                     android:id="@+id/multiplicationBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="multiplication"
                     android:text="@string/MULTIPLICATION"
-                    tools:text="@string/MULTIPLICATION"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/MULTIPLICATION" />
             </LinearLayout>
 
             <LinearLayout
@@ -236,43 +141,43 @@
                 <Button
                     android:id="@+id/fourBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:onClick="addButton4"
                     android:text="@string/FOUR"
-                    tools:text="@string/FOUR"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/FOUR" />
 
                 <Button
                     android:id="@+id/fiveBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:onClick="addButton5"
                     android:text="@string/FIVE"
-                    tools:text="@string/FIVE"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/FIVE" />
 
                 <Button
                     android:id="@+id/sixbtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:onClick="addButton6"
                     android:text="@string/SIX"
-                    tools:text="@string/SIX"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/SIX" />
 
                 <Button
                     android:id="@+id/additionBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="addition"
                     android:text="@string/ADD"
-                    tools:text="@string/ADD"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/ADD" />
             </LinearLayout>
 
             <LinearLayout
@@ -283,43 +188,43 @@
                 <Button
                     android:id="@+id/oneBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:onClick="addButton1"
                     android:text="@string/ONE"
-                    tools:text="@string/ONE"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/ONE" />
 
                 <Button
                     android:id="@+id/twoBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:onClick="addButton2"
                     android:text="@string/TWO"
-                    tools:text="@string/TWO"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/TWO" />
 
                 <Button
                     android:id="@+id/threeBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:onClick="addButton3"
                     android:text="@string/THREE"
-                    tools:text="@string/THREE"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/THREE" />
 
                 <Button
                     android:id="@+id/subtractionBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
                     android:layout_weight="1"
+                    android:textSize="30sp"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="subtraction"
                     android:text="@string/SUBTRACTION"
-                    tools:text="@string/SUBTRACTION"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/SUBTRACTION" />
             </LinearLayout>
 
             <LinearLayout
@@ -336,35 +241,35 @@
                     <Button
                         android:id="@+id/zeroBtn"
                         android:layout_width="wrap_content"
-                        android:layout_height="35sp"
+                        android:layout_height="85dp"
                         android:layout_weight="1"
                         android:onClick="addButton0"
+                        android:textSize="30sp"
                         android:text="@string/ZERO"
-                        tools:text="@string/ZERO"
-                        style="@style/ButtonFontStyle"/>
+                        tools:text="@string/ZERO" />
 
                     <Button
                         android:id="@+id/dotBtn"
                         android:layout_width="wrap_content"
-                        android:layout_height="35sp"
+                        android:layout_height="85dp"
                         android:layout_weight="1"
+                        android:textSize="30sp"
                         android:backgroundTint="@android:color/darker_gray"
                         android:onClick="addComa"
                         android:text="@string/DOT"
-                        tools:text="@string/DOT"
-                        style="@style/ButtonFontStyle"/>
+                        tools:text="@string/DOT" />
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/equalsBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="35sp"
+                    android:layout_height="85dp"
+                    android:textSize="30sp"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/darker_gray"
                     android:onClick="equal"
                     android:text="@string/EQUAL"
-                    tools:text="@string/EQUAL"
-                    style="@style/ButtonFontStyle"/>
+                    tools:text="@string/EQUAL" />
 
             </LinearLayout>
 

@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:freezesText="true"
             android:singleLine="false"
+            android:textSize="80sp"
             android:cursorVisible="false"
             android:backgroundTint="@color/orange"
             android:textColor="#fff"/>
@@ -44,46 +45,42 @@
                 <Button
                     android:id="@+id/bkspBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="backspace"
                     android:text="@string/BSKP"
                     tools:text="@string/BSKP"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:id="@+id/clearBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="clear"
                     android:text="@string/CLEAR"
                     tools:text="@string/CLEAR"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:id="@+id/changeBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="changeSign"
                     android:text="@string/CHANGE"
                     tools:text="@string/CHANGE"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:id="@+id/divisionBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/orange"
                     android:onClick="logarithm"
                     android:text="@string/LOG"
                     tools:text="@string/LOG"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
             </LinearLayout>
 
             <LinearLayout
@@ -94,43 +91,39 @@
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/orange"
                     android:onClick="sinus"
                     android:text="@string/SIN"
                     tools:text="@string/SIN"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/orange"
                     android:onClick="cosinus"
                     android:text="@string/COS"
                     tools:text="@string/COS"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/orange"
                     android:onClick="tanges"
                     android:text="@string/TAN"
                     tools:text="@string/TAN"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/orange"
                     android:onClick="naturalLogarithm"
                     android:text="@string/LN"
                     tools:text="@string/LN"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
             </LinearLayout>
 
             <LinearLayout
@@ -141,43 +134,39 @@
                 <Button
                     android:id="@+id/button3"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/orange"
                     android:onClick="sqrt"
                     android:text="@string/SQRT"
                     tools:text="@string/SQRT"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/orange"
                     android:onClick="powerToTwo"
                     android:text="@string/X2"
                     tools:text="@string/X2"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@color/orange"
                     android:onClick="powerToY"
                     android:text="@string/XY"
                     tools:text="@string/XY"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="division"
                     android:text="@string/DIV"
                     tools:text="@string/DIV"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
             </LinearLayout>
 
 
@@ -189,43 +178,39 @@
                 <Button
                     android:id="@+id/sevenBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:onClick="addButton7"
                     android:text="@string/SEVEN"
                     tools:text="@string/SEVEN"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:id="@+id/eightBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:onClick="addButton8"
                     android:text="@string/EIGHT"
                     tools:text="@string/EIGHT"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:id="@+id/nineBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:onClick="addButton9"
                     android:text="@string/NINE"
                     tools:text="@string/NINE"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:id="@+id/multiplicationBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="multiplication"
                     android:text="@string/MULTIPLICATION"
                     tools:text="@string/MULTIPLICATION"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
             </LinearLayout>
 
             <LinearLayout
@@ -236,43 +221,39 @@
                 <Button
                     android:id="@+id/fourBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:onClick="addButton4"
                     android:text="@string/FOUR"
                     tools:text="@string/FOUR"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:id="@+id/fiveBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:onClick="addButton5"
                     android:text="@string/FIVE"
                     tools:text="@string/FIVE"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:id="@+id/sixbtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:onClick="addButton6"
                     android:text="@string/SIX"
                     tools:text="@string/SIX"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:id="@+id/additionBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="addition"
                     android:text="@string/ADD"
                     tools:text="@string/ADD"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
             </LinearLayout>
 
             <LinearLayout
@@ -283,43 +264,39 @@
                 <Button
                     android:id="@+id/oneBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:onClick="addButton1"
                     android:text="@string/ONE"
                     tools:text="@string/ONE"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:id="@+id/twoBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:onClick="addButton2"
                     android:text="@string/TWO"
                     tools:text="@string/TWO"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:id="@+id/threeBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:onClick="addButton3"
                     android:text="@string/THREE"
                     tools:text="@string/THREE"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
                 <Button
                     android:id="@+id/subtractionBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
                     android:onClick="subtraction"
                     android:text="@string/SUBTRACTION"
                     tools:text="@string/SUBTRACTION"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
             </LinearLayout>
 
             <LinearLayout
@@ -336,35 +313,32 @@
                     <Button
                         android:id="@+id/zeroBtn"
                         android:layout_width="wrap_content"
-                        android:layout_height="35sp"
                         android:layout_weight="1"
                         android:onClick="addButton0"
                         android:text="@string/ZERO"
                         tools:text="@string/ZERO"
-                        style="@style/ButtonFontStyle"/>
+                        style="@style/AdvancedTabletButton"/>
 
                     <Button
                         android:id="@+id/dotBtn"
                         android:layout_width="wrap_content"
-                        android:layout_height="35sp"
                         android:layout_weight="1"
                         android:backgroundTint="@android:color/darker_gray"
                         android:onClick="addComa"
                         android:text="@string/DOT"
                         tools:text="@string/DOT"
-                        style="@style/ButtonFontStyle"/>
+                        style="@style/AdvancedTabletButton"/>
                 </LinearLayout>
 
                 <Button
                     android:id="@+id/equalsBtn"
                     android:layout_width="match_parent"
-                    android:layout_height="35sp"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/darker_gray"
                     android:onClick="equal"
                     android:text="@string/EQUAL"
                     tools:text="@string/EQUAL"
-                    style="@style/ButtonFontStyle"/>
+                    style="@style/AdvancedTabletButton"/>
 
             </LinearLayout>
 

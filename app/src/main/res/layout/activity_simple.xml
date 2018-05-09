@@ -19,12 +19,13 @@
 
 
         <EditText
-            android:id="@+id/resultText"
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:freezesText="true"
             android:cursorVisible="false"
-            android:backgroundTint="@color/orange"/>
+            android:backgroundTint="@color/orange"
+            android:textColor="#fff"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -45,7 +46,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
-                    android:onClick="bkspBtnClicked"
+                    android:onClick="backspace"
                     android:text="@string/BSKP"
                     tools:text="@string/BSKP" />
 
@@ -55,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
-                    android:onClick="clearBtnClicked"
+                    android:onClick="clear"
                     android:text="@string/CLEAR"
                     tools:text="@string/CLEAR" />
 
@@ -65,7 +66,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
-                    android:onClick="changeBtnClicked"
+                    android:onClick="changeSign"
                     android:text="@string/CHANGE"
                     tools:text="@string/CHANGE" />
 
@@ -75,7 +76,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
-                    android:onClick="divisionBtnClicked"
+                    android:onClick="division"
                     android:text="@string/DIV"
                     tools:text="@string/DIV" />
             </LinearLayout>
@@ -90,7 +91,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="sevenBtnClicked"
+                    android:onClick="addButton7"
                     android:text="@string/SEVEN"
                     tools:text="@string/SEVEN" />
 
@@ -99,7 +100,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="eightBtnClicked"
+                    android:onClick="addButton8"
                     android:text="@string/EIGHT"
                     tools:text="@string/EIGHT" />
 
@@ -108,7 +109,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="nineBtnClicked"
+                    android:onClick="addButton9"
                     android:text="@string/NINE"
                     tools:text="@string/NINE" />
 
@@ -118,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
-                    android:onClick="multiplicationBtnClicked"
+                    android:onClick="multiplication"
                     android:text="@string/MULTIPLICATION"
                     tools:text="@string/MULTIPLICATION" />
             </LinearLayout>
@@ -133,7 +134,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="fourBtnClicked"
+                    android:onClick="addButton4"
                     android:text="@string/FOUR"
                     tools:text="@string/FOUR" />
 
@@ -142,7 +143,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="fiveBtnClicked"
+                    android:onClick="addButton5"
                     android:text="@string/FIVE"
                     tools:text="@string/FIVE" />
 
@@ -151,7 +152,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="sixBtnClicked"
+                    android:onClick="addButton6"
                     android:text="@string/SIX"
                     tools:text="@string/SIX" />
 
@@ -161,7 +162,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
-                    android:onClick="additionBtnClicked"
+                    android:onClick="addition"
                     android:text="@string/ADD"
                     tools:text="@string/ADD" />
             </LinearLayout>
@@ -176,7 +177,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="oneBtnClicked"
+                    android:onClick="addButton1"
                     android:text="@string/ONE"
                     tools:text="@string/ONE" />
 
@@ -185,7 +186,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="twoBtnClicked"
+                    android:onClick="addButton2"
                     android:text="@string/TWO"
                     tools:text="@string/TWO" />
 
@@ -194,7 +195,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:onClick="threeBtnClicked"
+                    android:onClick="addButton3"
                     android:text="@string/THREE"
                     tools:text="@string/THREE" />
 
@@ -204,7 +205,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/holo_orange_dark"
-                    android:onClick="subtractionBtnClicked"
+                    android:onClick="subtraction"
                     android:text="@string/SUBTRACTION"
                     tools:text="@string/SUBTRACTION" />
             </LinearLayout>
@@ -225,7 +226,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:onClick="zeroBtnClicked"
+                        android:onClick="addButton0"
                         android:text="@string/ZERO"
                         tools:text="@string/ZERO" />
 
@@ -235,7 +236,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:backgroundTint="@android:color/darker_gray"
-                        android:onClick="separatorClicked"
+                        android:onClick="addComa"
                         android:text="@string/DOT"
                         tools:text="@string/DOT" />
                 </LinearLayout>
@@ -246,7 +247,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:backgroundTint="@android:color/darker_gray"
-                    android:onClick="equalsBtnClicked"
+                    android:onClick="equal"
                     android:text="@string/EQUAL"
                     tools:text="@string/EQUAL" />
 

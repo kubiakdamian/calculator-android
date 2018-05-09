@@ -1,180 +1,218 @@
 package com.example.calculator;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class AdvancedActivity extends AppCompatActivity {
 
-    private Calculations calculations;
-    private EditText resultText;
-    private StringBuilder input;
+    private static final String OPERATION_NO_SELECT = "Nie wybrano operacji";
+    private static final String DIV_BY_ZERO = "Nie mozna dzielic przez zero";
+    private static final String FIRST_NUMBER = "firstNumber";
+    private static final String SECOND_NUMBER = "secondNumber";
+    private static final String CLICK_OPERATION = "clickOperation";
+    private static final String OPERATION = "operation";
+    private static final String INPUT = "input";
+
+    private TextView resultText;
     private double firstNumber;
     private double secondNumber;
-    private double result;
-    private boolean equalsClicked;
-    private boolean isResultDisplayed;
-    private boolean isAdvancedOperation;
-    private String action;
+    private Operation operation = Operation.NONE;
+    private boolean clickOperation;
+
+    private StringBuilder input;
+
+    protected void initialize(){
+        resultText = findViewById(R.id.resultText);
+        input = new StringBuilder();
+        resultText.setText(input);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advanced);
-        calculations = new Calculations();
-        init();
-
-        if(savedInstanceState != null){
-            firstNumber = savedInstanceState.getDouble("firstNumber");
-            secondNumber = savedInstanceState.getDouble("secondNumber");
-            action = savedInstanceState.getString("action");
-            equalsClicked = savedInstanceState.getBoolean("equalsClicked");
-            isResultDisplayed = savedInstanceState.getBoolean("isResultDisplayed");
-            isAdvancedOperation = savedInstanceState.getBoolean("isAdvancedOperation");
-            input.append(savedInstanceState.getString("input"));
+        initialize();
+        if (savedInstanceState != null) {
+            firstNumber = savedInstanceState.getDouble(FIRST_NUMBER);
+            secondNumber = savedInstanceState.getDouble(SECOND_NUMBER);
+            clickOperation = savedInstanceState.getBoolean(CLICK_OPERATION);
+            String operationString = savedInstanceState.getString(OPERATION);
+            operation = Operation.valueOf(operationString);
+            input.append(savedInstanceState.getString(INPUT));
         }
     }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
-        outState.putDouble("firstNumber", firstNumber);
-        outState.putDouble("secondNumber", secondNumber);
-        outState.putString("action", action);
-        outState.putBoolean("equalsClicked", equalsClicked);
-        outState.putBoolean("isResultDisplayed", isResultDisplayed);
-        outState.putBoolean("isAdvancedOperation", isAdvancedOperation);
-        outState.putString("input", input.toString());
-
+        outState.putDouble(FIRST_NUMBER, firstNumber);
+        outState.putDouble(SECOND_NUMBER, secondNumber);
+        outState.putBoolean(CLICK_OPERATION, clickOperation);
+        outState.putString(OPERATION, operation.toString());
+        outState.putString(INPUT, input.toString());
         super.onSaveInstanceState(outState);
     }
 
-    private void init(){
-        resultText = findViewById(R.id.resultText);
-        resultText.setTextColor(Color.WHITE);
-        input = new StringBuilder();
-        resultText.setText(input);
-        equalsClicked = true;
-        isResultDisplayed = false;
-        isAdvancedOperation = false;
-        action = "none";
+    public void multiplication(View view) {
+        addNumbers(Operation.MUL);
     }
 
-    public void zeroBtnClicked(View view){
-        if(!isResultDisplayed){
-            input.append("0");
-            refreshInput();
-        }
+    public void addition(View view) {
+        addNumbers(Operation.ADD);
     }
 
-    public void oneBtnClicked(View view){
-        if(!isResultDisplayed){
-            input.append("1");
-            refreshInput();
-        }
+    public void subtraction(View view) {
+        addNumbers(Operation.SUB);
     }
 
-    public void twoBtnClicked(View view){
-        if(!isResultDisplayed){
-            input.append("2");
-            refreshInput();
-        }
+    public void division(View view) {
+        addNumbers(Operation.DIV);
     }
 
-    public void threeBtnClicked(View view){
-        if(!isResultDisplayed){
-            input.append("3");
-            refreshInput();
-        }
-    }
-
-    public void fourBtnClicked(View view){
-        if(!isResultDisplayed){
-            input.append("4");
-            refreshInput();
-        }
-    }
-
-    public void fiveBtnClicked(View view){
-        if(!isResultDisplayed){
-            input.append("5");
-            refreshInput();
-        }
-    }
-
-    public void sixBtnClicked(View view){
-        if(!isResultDisplayed){
-            input.append("6");
-            refreshInput();
-        }
-    }
-
-    public void sevenBtnClicked(View view){
-        if(!isResultDisplayed){
-            input.append("7");
-            refreshInput();
-        }
-    }
-
-    public void eightBtnClicked(View view){
-        if(!isResultDisplayed){
-            input.append("8");
-            refreshInput();
-        }
-    }
-
-    public void nineBtnClicked(View view){
-        if(!isResultDisplayed){
-            input.append("9");
-            refreshInput();
-        }
-    }
-
-    public void separatorClicked(View view) {
-        if (input.indexOf(".") != -1){
-            return;
-        }
-        if(input.length() > 0){
-            input.append(".");
-        }
-        refreshInput();
-    }
-
-    public void additionBtnClicked(View view){
-        twoNumbersOperation("addition");
-    }
-
-    public void subtractionBtnClicked(View view){
-        twoNumbersOperation("subtraction");
-    }
-
-    public void multiplicationBtnClicked(View view){
-        twoNumbersOperation("multiplication");
-    }
-
-    public void divisionBtnClicked(View view){
-        twoNumbersOperation("division");
-    }
-
-    public void clearBtnClicked(View view){
-        firstNumber = 0;
-        isResultDisplayed = false;
-        equalsClicked = true;
-        clearInput();
-    }
-
-    public void bkspBtnClicked(View view) {
-        if(!isResultDisplayed){
-            if(input.length() > 0){
-                input = input.deleteCharAt(input.length() - 1);
+    void addNumbers(Operation operation){
+        if(!clickOperation){
+            if(addFirstNubmer()) {
+                this.operation = operation;
+                clickOperation = true;
             }
         }
+        else{
+            if(addSecondNubmer()) {
+                this.firstNumber = returnResult();
+            }
+            this.operation = operation;
+        }
+    }
+
+    public void equal(View view) {
+        if(operation.equals(Operation.NONE)){
+            addToast(OPERATION_NO_SELECT);
+        }else{
+            if(addSecondNubmer()) {
+                showResult();
+                refreshInput();
+            }
+        }
+        operation = operation.NONE;
+    }
+
+    public void backspace(View view) {
+        if(input.length() > 0){
+            input = input.deleteCharAt(input.length() - 1);
+        }
         refreshInput();
     }
 
-    public void changeBtnClicked(View view){
+    public void refreshInput(){
+        resultText.setText(input);
+    }
+
+    public void clear(View view) {
+        operation = Operation.NONE;
+        clickOperation = false;
+        firstNumber = 0;
+        secondNumber = 0;
+        input.setLength(0);
+        refreshInput();
+    }
+
+    public double returnResult(){
+        double value = 0;
+        if(operation.equals(Operation.ADD)){
+            value = firstNumber + secondNumber;
+        }
+        if(operation.equals(Operation.SUB)){
+            value = firstNumber - secondNumber;
+        }
+        if(operation.equals(Operation.MUL)){
+            value = firstNumber * secondNumber;
+        }
+        if(operation.equals(Operation.DIV)){
+            if(secondNumber != 0) {
+                value = firstNumber / secondNumber;
+            }
+            else{
+                addToast(DIV_BY_ZERO);
+            }
+        }
+        if(operation.equals(Operation.SQRT)){
+            value = Math.sqrt(firstNumber);
+        }
+        if(operation.equals(Operation.COS)){
+            value = Math.cos(firstNumber);
+        }
+        if(operation.equals(Operation.SIN)){
+            value = Math.sin(firstNumber);
+        }
+        if(operation.equals(Operation.TAN)){
+            value = Math.tan(firstNumber);
+        }
+        if(operation.equals(Operation.LOGN)){
+            value = Math.log(firstNumber);
+        }
+        if(operation.equals(Operation.LOG)){
+            value = Math.log10(firstNumber);
+        }
+        if(operation.equals(Operation.POW2)){
+            value = Math.pow(firstNumber,2);
+        }
+        if(operation.equals(Operation.POWY)){
+            value = Math.pow(firstNumber, secondNumber);
+        }
+        return value;
+    }
+
+    public void showResult(){
+        double value = returnResult();
+        input.setLength(0);
+        input.append(String.valueOf(value));
+        firstNumber = value;
+        clickOperation = false;
+    }
+
+    public void addToast(String information){
+        Context context = getApplicationContext();
+        CharSequence text = information;
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
+
+    public void checkZero(){
+        if(input.toString().startsWith("0") && input.length() == 1){
+            input.deleteCharAt(0);
+        }
+    }
+
+    public boolean addFirstNubmer(){
+        try {
+            firstNumber = Double.parseDouble(input.toString());
+            input.setLength(0);
+            refreshInput();
+            return true;
+        }catch(NumberFormatException ignored){
+            return false;
+        }
+    }
+
+    public boolean addSecondNubmer(){
+        try {
+            secondNumber = Double.parseDouble(input.toString());
+            input.setLength(0);
+            refreshInput();
+            return true;
+        }
+        catch(NumberFormatException ignored){
+            return false;
+        }
+    }
+
+    public void changeSign(View view) {
         try{
             double value = Double.parseDouble(input.toString());
             if(value < 0){
@@ -183,223 +221,174 @@ public class AdvancedActivity extends AppCompatActivity {
             else if(value > 0){
                 input.insert(0,"-");
             }
-            firstNumber = Double.parseDouble(input.toString());
         }
         catch(NumberFormatException ignored){
         }
         refreshInput();
     }
 
-    public void equalsBtnClicked(View view){
-        if(input.length() != 0){
-            if(!equalsClicked){
-                makeCalculations();
-                setInputAsResult();
-            }
-            equalsClicked = true;
-            isResultDisplayed = true;
-        }
-    }
-
-    public void logBtnClicked(View view){
-        if(!isResultDisplayed){
-            makeCalculations();
-        }
-        if(input.length() > 0) {
-            if (firstNumber == 0) {
-                firstNumber = Double.parseDouble(input.toString());
-            }
-            if(firstNumber > 0){
-                action = "log";
-                makeCalculations();
-                setSingleNumberOperationFlags();
-                setInputAsResult();
-            }else{
-                Toast.makeText(getBaseContext(), "Number has to be greater than 0!", Toast.LENGTH_SHORT).show();
+    public void addComa(View view) {
+        if(!input.toString().contains(".")) {
+            if (input.toString().equals("")) {
+                input.insert(0, "0.");
+            } else {
+                input.insert(input.length(), ".");
             }
         }
-    }
-
-    public void lnBtnClicked(View view){
-        if(!isResultDisplayed){
-            makeCalculations();
-        }
-        if(input.length() > 0) {
-            if (firstNumber == 0) {
-                firstNumber = Double.parseDouble(input.toString());
-            }
-            if(firstNumber > 0){
-                action = "ln";
-                makeCalculations();
-                setSingleNumberOperationFlags();
-                setInputAsResult();
-            }else{
-                Toast.makeText(getBaseContext(), "Number has to be greater than 0!", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
-    public void sinBtnClicked(View view){
-        singleNumberOperation("sin");
-    }
-
-    public void cosBtnClicked(View view){
-        singleNumberOperation("cos");
-    }
-
-    public void tanBtnClicked(View view){
-        singleNumberOperation("tan");
-    }
-
-    public void sqrtBtnClicked(View view){
-        if(!isResultDisplayed){
-            makeCalculations();
-        }
-        if(input.length() > 0) {
-            if (firstNumber == 0) {
-                firstNumber = Double.parseDouble(input.toString());
-            }
-            if(firstNumber > 0){
-                action = "sqrt";
-                makeCalculations();
-                setSingleNumberOperationFlags();
-                setInputAsResult();
-            }else{
-                Toast.makeText(getBaseContext(), "Number has to be greater than 0!", Toast.LENGTH_SHORT).show();
-            }
-        }
-    }
-
-    public void powBtnClicked(View view){
-        singleNumberOperation("pow");
-    }
-
-    public void powToYBtnClicked(View view){
-        if(input.length() > 0) {
-            if (equalsClicked) {
-                action = "powToY";
-                if (firstNumber == 0) {
-                    firstNumber = Double.parseDouble(input.toString());
-                }
-            } else{
-                makeCalculations();
-                action = "powToY";
-                Toast.makeText(getBaseContext(), String.valueOf(firstNumber), Toast.LENGTH_SHORT).show();
-            }
-            setTwoNumbersOperationFlags();
-            clearInput();
-        }
-    }
-
-    private void twoNumbersOperation(String actionType){
-        if(input.length() > 0) {
-            if (equalsClicked) {
-                action = actionType;
-                if (firstNumber == 0) {
-                    firstNumber = Double.parseDouble(input.toString());
-                }
-            } else if(!isAdvancedOperation) {
-                makeCalculations();
-                action = actionType;
-                Toast.makeText(getBaseContext(), String.valueOf(firstNumber), Toast.LENGTH_SHORT).show();
-            }
-            setTwoNumbersOperationFlags();
-            clearInput();
-        }
-    }
-
-    private void singleNumberOperation(String actionType){
-        if(!isResultDisplayed){
-            makeCalculations();
-        }
-        if(input.length() > 0) {
-            if (firstNumber == 0) {
-                firstNumber = Double.parseDouble(input.toString());
-            }
-            action = actionType;
-            makeCalculations();
-            setSingleNumberOperationFlags();
-            setInputAsResult();
-        }
-    }
-
-    private void setTwoNumbersOperationFlags(){
-        isResultDisplayed = false;
-        equalsClicked = false;
-        isAdvancedOperation = false;
-    }
-
-    private void setSingleNumberOperationFlags(){
-        isResultDisplayed = true;
-        equalsClicked = true;
-        isAdvancedOperation = true;
-    }
-
-    private void setInputAsResult(){
-        input.setLength(0);
-        input.append(Double.toString(firstNumber));
         refreshInput();
     }
 
-    private void makeCalculations(){
-        secondNumber = Double.parseDouble(input.toString());
-        if(action.equals("subtraction")){
-            result = calculations.subtraction(firstNumber, secondNumber);
-            firstNumber = result;
-        }else if(action.equals("addition")){
-            result = calculations.addition(firstNumber, secondNumber);
-            firstNumber = result;
-        }else if(action.equals("multiplication")){
-            result = calculations.multiplication(firstNumber, secondNumber);
-            firstNumber = result;
-        }else if(action.equals("division")){
-            if(secondNumber != 0){
-                result = calculations.division(firstNumber, secondNumber);
-                firstNumber = result;
-            }else{
-                Toast.makeText(getBaseContext(), "You cannot divide by 0!", Toast.LENGTH_SHORT).show();
-            }
-        }else if(action.equals("log")){
-            result = calculations.log(firstNumber);
-            firstNumber = result;
-        }else if(action.equals("ln")){
-            result = calculations.ln(firstNumber);
-            firstNumber = result;
-        }else if(action.equals("sin")){
-            result = calculations.sin(firstNumber);
-            firstNumber = result;
-        }else if(action.equals("cos")){
-            result = calculations.cos(firstNumber);
-            firstNumber = result;
-        }else if(action.equals("tan")){
-            result = calculations.tan(firstNumber);
-            firstNumber = result;
-        }else if(action.equals("sqrt")){
-            result = calculations.sqrt(firstNumber);
-            firstNumber = result;
-        }else if(action.equals("pow")){
-            result = calculations.pow(firstNumber);
-            if(Double.isInfinite(result)){
-                Toast.makeText(getBaseContext(), "The number is too large!", Toast.LENGTH_SHORT).show();
-            }else{
-                firstNumber = result;
-            }
-        }else if(action.equals("powToY")){
-            result = calculations.pow(firstNumber, secondNumber);
-            if(Double.isInfinite(result)){
-                Toast.makeText(getBaseContext(), "The number is too large!", Toast.LENGTH_SHORT).show();
-            }else{
-                firstNumber = result;
+    public void addButton0(View view) {
+        checkZero();
+        input.append("0");
+        refreshInput();
+    }
+
+    public void addButton1(View view) {
+        checkZero();
+        input.append("1");
+        refreshInput();
+    }
+
+    public void addButton2(View view) {
+        checkZero();
+        input.append("2");
+        refreshInput();
+    }
+
+    public void addButton3(View view) {
+        checkZero();
+        input.append("3");
+        refreshInput();
+    }
+
+    public void addButton4(View view) {
+        checkZero();
+        input.append("4");
+        refreshInput();
+    }
+
+    public void addButton5(View view) {
+        checkZero();
+        input.append("5");
+        refreshInput();
+    }
+
+    public void addButton6(View view) {
+        checkZero();
+        input.append("6");
+        refreshInput();
+    }
+
+    public void addButton7(View view) {
+        checkZero();
+        input.append("7");
+        refreshInput();
+    }
+
+    public void addButton8(View view) {
+        checkZero();
+        input.append("8");
+        refreshInput();
+    }
+
+    public void addButton9(View view) {
+        checkZero();
+        input.append("9");
+        refreshInput();
+    }
+
+    //advanced
+
+    public void logarithm(View view) {
+        if(!clickOperation){
+            if(addFirstNubmer()) {
+                operation = Operation.LOG;
+                clickOperation = true;
+                showResult();
+                refreshInput();
             }
         }
     }
 
-    private void refreshInput(){
-        resultText.setText(input);
+    public void sqrt(View view) {
+        if(!clickOperation){
+            if(addFirstNubmer()) {
+                operation = Operation.SQRT;
+                clickOperation = true;
+                showResult();
+                refreshInput();
+            }
+        }
     }
 
-    private void clearInput(){
-        input.setLength(0);
-        refreshInput();
+    public void naturalLogarithm(View view) {
+        if(!clickOperation){
+            if(addFirstNubmer()) {
+                operation = Operation.LOGN;
+                clickOperation = true;
+                showResult();
+                refreshInput();
+            }
+        }
+    }
+
+    public void tanges(View view) {
+        if(!clickOperation){
+            if(addFirstNubmer()) {
+                operation = Operation.TAN;
+                clickOperation = true;
+                showResult();
+                refreshInput();
+            }
+        }
+    }
+
+    public void cosinus(View view) {
+        if(!clickOperation){
+            if(addFirstNubmer()) {
+                operation = Operation.COS;
+                clickOperation = true;
+                showResult();
+                refreshInput();
+            }
+        }
+    }
+
+    public void sinus(View view) {
+        if(!clickOperation){
+            if(addFirstNubmer()) {
+                operation = Operation.SIN;
+                clickOperation = true;
+                showResult();
+                refreshInput();
+            }
+        }
+    }
+
+    public void powerToTwo(View view) {
+        if(!clickOperation){
+            if(addFirstNubmer()) {
+                operation = Operation.POW2;
+                clickOperation = true;
+                showResult();
+                refreshInput();
+            }
+        }
+    }
+
+    public void powerToY(View view) {
+        if(!clickOperation){
+            if(addFirstNubmer()) {
+                operation = Operation.POWY;
+                clickOperation = true;
+            }
+        }
+        else{
+            if(addSecondNubmer()) {
+                this.firstNumber = returnResult();
+            }
+            operation = Operation.POWY;
+        }
     }
 }

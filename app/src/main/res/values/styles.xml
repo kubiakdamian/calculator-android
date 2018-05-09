@@ -12,4 +12,9 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="AdvancedTabletButton">
+        <item name="android:textSize">25sp</item>
+        <item name="android:layout_height">70dp</item>
+    </style>
+
 </resources>
