@@ -4,7 +4,9 @@ import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +40,8 @@ public class SimpleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple);
         initialize();
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        textView.setInputType(InputType.TYPE_NULL);
         if (savedInstanceState != null) {
             firstNumber = savedInstanceState.getDouble(FIRST_NUMBER);
             secondNumber = savedInstanceState.getDouble(SECOND_NUMBER);

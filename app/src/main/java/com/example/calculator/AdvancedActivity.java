@@ -2,9 +2,13 @@ package com.example.calculator;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +42,8 @@ public class AdvancedActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_advanced);
         initialize();
+        this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+        resultText.setInputType(InputType.TYPE_NULL);
         if (savedInstanceState != null) {
             firstNumber = savedInstanceState.getDouble(FIRST_NUMBER);
             secondNumber = savedInstanceState.getDouble(SECOND_NUMBER);
@@ -46,6 +52,7 @@ public class AdvancedActivity extends AppCompatActivity {
             operation = Operation.valueOf(operationString);
             input.append(savedInstanceState.getString(INPUT));
         }
+
     }
 
     @Override
@@ -57,6 +64,7 @@ public class AdvancedActivity extends AppCompatActivity {
         outState.putString(INPUT, input.toString());
         super.onSaveInstanceState(outState);
     }
+
 
     public void multiplication(View view) {
         addNumbers(Operation.MUL);

@@ -30,21 +30,18 @@ public class MainActivity extends AppCompatActivity {
                 openSimpleCalculator();
             }
         });
-
         advancedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openAdvancedCalculator();
             }
         });
-
         aboutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openAbout();
             }
         });
-
         exitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
