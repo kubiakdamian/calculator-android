@@ -13,8 +13,8 @@ import android.widget.Toast;
 
 public class SimpleActivity extends AppCompatActivity {
 
-    private static final String OPERATION_NO_SELECT = "Nie wybrano operacji";
-    private static final String DIV_BY_ZERO = "Nie mozna dzielic przez zero";
+    private static final String OPERATION_NO_SELECT = "The operation was not selected";
+    private static final String DIV_BY_ZERO = "Can not be divided by 0";
     private static final String FIRST_NUMBER = "firstNumber";
     private static final String SECOND_NUMBER = "secondNumber";
     private static final String CLICK_OPERATION = "clickOperation";
