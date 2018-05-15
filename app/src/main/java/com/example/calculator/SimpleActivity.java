@@ -143,6 +143,7 @@ public class SimpleActivity extends AppCompatActivity {
             }
             else{
                 addToast(DIV_BY_ZERO);
+                value = firstNumber;
             }
         }
         return value;
